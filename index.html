@@ -18,7 +18,7 @@
                 <span>
                     <li><a href="aboutUs.php">About Us</a></li>
                     <li><a href="ourTeam.php">Our team</a></li>
-                    <li><a href="register.php">Register</a></li>
+                    <li><a href="register.php">Register/Login</a></li>
                 </span>
                 
             </ul>
