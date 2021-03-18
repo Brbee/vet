@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+    <?php 
+      include 'db_config.php'; 
+      $sql = "SELECT * FROM veterinarians ORDER BY id ASC";
+      $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
+    ?>
     <section>
         <nav>
             <ul>
@@ -26,28 +31,20 @@
         </nav>
     </section>
     <section id="ourTeam">
+      <?php
+      while ($record=mysqli_fetch_array($result,MYSQLI_ASSOC))
+      {
+      ?>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="imgs/pexels-photo-5486952.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="imgs/<?php echo $record['image']?>" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Mary</h5>
-              <p class="card-text"><u><b>SPECIALTY</b></u>: Nutrition</p>
+              <h5 class="card-title"><?php echo $record['name']?></h5>
+              <p class="card-text"><u><b>SPECIALTY</b></u>: <?php echo $record['specialty']?></p>
             </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="imgs/pexels-photo-5487070.jpeg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Liam</h5>
-              <p class="card-text"><u><b>SPECIALTY</b></u>: Emergency and critical care</p>
-            </div>
-          </div>
-          
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="imgs/pexels-photo-6130968.jpeg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Sarah</h5>
-              <p class="card-text"><u><b>SPECIALTY</b></u>: Toxicology</p>
-            </div>
-          </div>
+        </div>
+        <?php
+      }
+        ?>
     </section>
     
 </body>
