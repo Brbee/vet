@@ -13,7 +13,7 @@
 </head>
 <body>
     <?php 
-      include 'db_config.php'; 
+      include 'db_config.php';
       $sql = "SELECT * FROM veterinarians ORDER BY id ASC";
       $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
     ?>

@@ -41,6 +41,10 @@
                 <input type="submit" value="Register" name="registerBTN">
             </fieldset>
         </form>
+        <?php
+            if(isset($_GET['failed']))
+            echo 'That email already exists in the database';
+        ?>
         <form action="indexR.php" id="second" method="POST">
             <fieldset>
                 <legend>Login</legend>

@@ -11,6 +11,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Akaya+Telivigala&display=swap" rel="stylesheet">
 </head>
 <body>
+    <?php
+    include 'db_config.php';
+    $sql = "Select * from users where email='$_POST[email]'";
+    $result = mysqli_query($connection, $sql);
+    $num = mysqli_num_rows($result);
+    if($num == 0) {
+        $s = "INSERT INTO users (firstName, lastName,email, password,phoneNumber, gender) VALUES ('$_POST[fName]', '$_POST[lName]', '$_POST[email]', '$_POST[password]', $_POST[phone], '$_POST[gender]')";
+        if ($connection->query($s) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $s . "<br>" . $connection->error;
+        }
+    }
+    else
+    {
+        header('location:register.php?failed=true');
+        
+    }
+    
+      
+    $connection->close();
+    ?>
     <section>
         <nav>
             <ul>
