@@ -1,29 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Akaya+Telivigala&display=swap" rel="stylesheet">
-</head>
-<body>
-    <section>
-        <nav>
-            <ul>
-                <span><li><a class="mainBTN" href="index.php">poodling</a></li></span>
-                <span>
-                    <li><a href="aboutUs.php">About Us</a></li>
-                    <li><a href="ourTeam.php">Our team</a></li>
-                    <li><a href="register.php">Register/Login</a></li>
-                </span>
-                
-            </ul>
-        </nav>
-        <img src="imgs/5d4abea9066585c107c863c8_dog pet portrait photography.jpg">
+<?php
+include 'includes/header.php';
+?>
+<div id="firstImage" class="takeWholeScreen" >
+  <img src="imgs/photo-1548199973-03cce0bbc87b.jfif">
+</div>  
+    
+    <?php 
+      include 'includes/db_config.php';
+      $sql = "SELECT * FROM veterinarians ORDER BY id ASC";
+      $result = mysqli_query($connection,$sql) or die(mysqli_error($connection));
+    ?>
+    
+    <section class="takeWholeScreen" id="aboutUs">
+      <p>We strive to use our resources, reach and relationships to improve the wellness of pets, communities, our associates and the veterinary profession.</p>
     </section>
+
+    <section class="takeWholeScreen" id="ourTeam">
+      <?php
+      while ($record=mysqli_fetch_array($result,MYSQLI_ASSOC))
+      {
+      ?>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="imgs/<?php echo $record['image']?>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $record['name']?></h5>
+              <p class="card-text"><u><b>SPECIALTY</b></u>: <?php echo $record['specialty']?></p>
+            </div>
+        </div>
+        <?php
+      }
+      ?>
+    </section>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

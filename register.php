@@ -25,15 +25,15 @@
     </section>
     <section id="forms">
         <form action="indexR.php" id="first" method="POST">
-            <fieldset>
+            <fieldset class="form-control">
                 <legend>Register</legend>
-                <p><label for="fName">First Name:</label><input type="text" name="fName" id="fName"></p>
-                <p><label for="lName">Last Name:</label><input type="text" name="lName" id="lName"></p>
-                <p><label for="email">Email:</label><input type="email" name="email" id="email"></p>
-                <p><label for="password">Password:</label><input type="password" pattern=".{8,}" required title="8 characters minimum" name="password" id="password"></p>
-                <p><label for="phone">Phone Number:</label><input type="text" name="phone" id="phone"></p>
+                <p><label for="fName">First Name:</label><input class="form-control" type="text" name="fName" id="fName"></p>
+                <p><label for="lName">Last Name:</label><input class="form-control" type="text" name="lName" id="lName"></p>
+                <p><label for="email">Email:</label><input class="form-control" type="email" name="email" id="email"></p>
+                <p><label for="password">Password:</label><input class="form-control" type="password" pattern=".{8,}" required title="8 characters minimum" name="password" id="password"></p>
+                <p><label for="phone">Phone Number:</label><input class="form-control" type="text" name="phone" id="phone"></p>
                 <p><label for="gender">Gender:</label>
-                <select name="gender" id="gender">
+                <select class="form-control" name="gender" id="gender">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
@@ -48,13 +48,13 @@
         <form action="indexR.php" id="second" method="POST">
             <fieldset>
                 <legend>Login</legend>
-                <p><label for="email">Email:</label><input type="email" name="email" id="email"></p>
-                <p><label for="password">Password:</label><input type="password" required name="password" id="password"></p>
+                <p><label for="email">Email:</label><input class="form-control" type="email" name="email" id="email"></p>
+                <p><label for="password">Password:</label><input class="form-control" type="password" required name="password" id="password"></p>
                 <input type="submit" value="Login" name="loginBTN">
             </fieldset>
         </form>
         
     </section>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

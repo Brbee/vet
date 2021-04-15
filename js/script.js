@@ -8,3 +8,5 @@ document.getElementById('phone').addEventListener('keydown', function(e) {
          (key >= 96 && key <= 105)
        )) e.preventDefault();
 });
+
+$ourTeam = document.querySelector("#ourTeam");

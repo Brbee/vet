@@ -39,9 +39,13 @@ span{
 
 body {
     text-align: center;
+    background: linear-gradient(rgba(0,0,50,0.5), rgba(0,0,50,0.5)), url("imgs/5d4abea9066585c107c863c8_dog.jpg");
+    background-size: cover;
 }
 
-
+.form-control{
+    background-color: transparent !important;
+}
 
 #forms{
     display: flex;
@@ -52,4 +56,20 @@ body {
 input[type="text"], input[type="password"], input[type="email"]{
     width: 95%;
     text-align: center;
+}
+
+legend, label, select, input:not(input[type="submit"]){
+    color: #fff;
+}
+
+select{
+    border: 2px solid #000;
+}
+
+option{
+    color: #000;
+}
+
+input:not(input[type="submit"]){
+    border: 2px solid #fff;
 }

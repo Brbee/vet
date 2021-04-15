@@ -46,7 +46,7 @@
                 
             </ul>
         </nav>
-        <img src="imgs/5d4abea9066585c107c863c8_dog pet portrait photography.jpg">
+        <img src="imgs/5d4abea9066585c107c863c8_dog.jpg.jpg">
     </section>
 </body>
 </html>
