@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Mar 18, 2021 at 07:53 PM
+-- Generation Time: Apr 15, 2021 at 09:24 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -58,14 +58,22 @@ CREATE TABLE `pet` (
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
-  `id_pet` int(11) NOT NULL,
   `firstName` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `lastName` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `phoneNumber` int(11) NOT NULL,
-  `image` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `gender` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_user`, `firstName`, `lastName`, `email`, `password`, `phoneNumber`, `gender`, `image`) VALUES
+(8, 'Uros', 'Jeknic', 'urosjeknic@gmail.com', '11081973luka', 606692032, 'male', NULL),
+(9, 'Luka', 'Jeknic', 'lukajeknic@gmail.com', '11081973Uros', 603854626, 'male', NULL);
 
 -- --------------------------------------------------------
 
@@ -109,8 +117,7 @@ ALTER TABLE `pet`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `fk_id_pet` (`id_pet`);
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- Indexes for table `veterinarians`
@@ -138,23 +145,13 @@ ALTER TABLE `pet`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `veterinarians`
 --
 ALTER TABLE `veterinarians`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `fk_id_pet` FOREIGN KEY (`id_pet`) REFERENCES `pet` (`id_pet`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
